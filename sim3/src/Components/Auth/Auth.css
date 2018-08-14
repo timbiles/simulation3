@@ -1,0 +1,45 @@
+.auth_container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;    
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to right, #F08275 20%, #F9D17F 90%);
+    
+}
+
+.login_container {
+    width: 30%;
+    background: linear-gradient(to right, #F08275 0%, #F9D17F 90%);
+    border-radius: 3%;
+    box-shadow: 2px 2px 2px rgb(119, 119, 119);
+    padding: 3%;
+}
+
+.login_container h1 {
+    font-size: 4rem;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: .6rem;
+    font-weight: none;
+}
+
+.login_container input {
+    height: 10%;
+}
+
+.login_btn {
+    display: flex;
+    justify-content: space-around;
+    font-size: .55rem;
+}
+
+.login_btn h2 {
+    background-color: #555351;
+    padding: 2% 3%;
+}
+
