@@ -9,15 +9,20 @@
 }
 
 .login_container {
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 40vw;
     background: linear-gradient(to right, #F08275 0%, #F9D17F 90%);
     border-radius: 3%;
-    box-shadow: 2px 2px 2px rgb(119, 119, 119);
+    box-shadow: 2px 6px 5px rgb(119, 119, 119);
     padding: 3%;
 }
 
 .login_container h1 {
     font-size: 4rem;
+    width: 100%;
 }
 
 .input {
@@ -26,6 +31,11 @@
     justify-content: space-around;
     font-size: .6rem;
     font-weight: none;
+    width: 65%;
+}
+
+.input h2 {
+    margin-right: 10%;
 }
 
 .login_container input {
@@ -36,10 +46,13 @@
     display: flex;
     justify-content: space-around;
     font-size: .55rem;
+    width: 65%;
+    
 }
 
 .login_btn h2 {
     background-color: #555351;
-    padding: 2% 3%;
+    padding: 10px 20px;
+    font-size: .6rem;
 }
 
