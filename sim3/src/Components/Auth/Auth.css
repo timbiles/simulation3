@@ -23,6 +23,7 @@
 .login_container h1 {
     font-size: 4rem;
     width: 100%;
+    text-align: center;
 }
 
 .input {
@@ -54,5 +55,12 @@
     background-color: #555351;
     padding: 10px 20px;
     font-size: .6rem;
+}
+
+.link_btn {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    
 }
 
