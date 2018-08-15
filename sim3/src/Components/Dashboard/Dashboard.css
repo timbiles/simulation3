@@ -1,5 +1,83 @@
 .dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.dash_top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 10%;
+  background-color: rgb(255, 255, 255);
+  margin-top: 5%;
+  box-shadow: 2px 1px 5px grey;
+  border-radius: 1%;
+}
+
+.dash_search {
+  display: flex;
+  align-items: center; 
+  width: 60%;
+}
+
+.dash_search input {
+    width: 20rem;
+}
+
+.dash_top2 {
+  display: flex;
+  align-items: center;
+}
+
+.search_icon {
+  width: 30px;
+  background-color: #ff8c65;
+  border-radius: 1%;
+  padding: 2%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.dashboard h3 {
+  font-size: 0.7rem;
+  font-weight: 200;
+  color: white;
+  background-color: #484644;
+  padding: 2% 5%;
+  height: 100%;
+  cursor: pointer;  
+}
+
+.icon_container {
     display: flex;
-    height: 100vh;
-    width: 100%;
+}
+
+.dashboard h2 {
+  font-size: 0.9rem;
+  font-weight: 400;  
+}
+
+.posts_map {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  box-shadow: 2px 1px 5px grey;
+  margin: 1%;
+  justify-content: space-between;
+  padding: 0 2%;
+}
+
+.dash_bottom {
+  margin-top: 2%;
+  padding: 2% 0;
+  width: 70%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

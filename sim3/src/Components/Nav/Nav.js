@@ -7,7 +7,6 @@ import { getUser } from '../../ducks/reducer';
 
 class Nav extends Component {
   render() {
-    console.log(this.props);
 
     const image = this.props.img || 'https://robohash.org/TimBiles'
 
@@ -47,4 +46,4 @@ class Nav extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, {getUser})(Nav);

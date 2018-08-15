@@ -11,13 +11,13 @@ class Auth extends Component {
 
   loginSubmit = () => {
     const { username, password } = this.props;
-    axios.get('/api/users', { username, password });
+    axios.get('/api/user', { username, password });
 
   };
 
   registerSubmit = () => {
     const { username, password } = this.props;
-    axios.post('/api/users', { username, password });
+    axios.post('/api/user', { username, password });
 
   };
 

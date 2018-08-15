@@ -3,12 +3,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
+const path = require('path');
 const port = 3005;
 
-const { addUser, getUser } = require('./userCtrl');
+const { addUser, getUser, getUsers } = require('./userCtrl');
+const { getPosts} = require('./postCtrl');
 
 const app = express();
 app.use(bodyParser.json());
+
+/// build
+app.use(express.static(`${__dirname}/../build`));
 
 massive(process.env.CONNECTION_STRING)
   .then(db => {
@@ -18,20 +23,27 @@ massive(process.env.CONNECTION_STRING)
     console.log(err);
   });
 
-  app.use(
-    session({
-      secret: process.env.SESSION_SECRET,
-      resave: false,
-      saveUninitialized: false,
-      cookie: {
-        maxAge: 60 * 60 * 24 * 7 * 2
-      }
-    })
-  );
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 60 * 60 * 24 * 7 * 2
+    }
+  })
+);
 
 //--------- user endpoints ---------//
-app.post('/api/users', addUser);
-app.get('/api/users', getUser);
+app.post('/api/user', addUser);
+app.get('/api/user', getUser);
+app.get('/api/users', getUsers);
+
+app.get('/api/posts', getPosts);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Listening on Port: ${port}`);
