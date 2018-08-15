@@ -1,39 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
+
+import { updateUsername, updatePassword } from '../../ducks/reducer';
 
 import './Auth.css';
 
 class Auth extends Component {
-  state = {
-    username: '',
-    password: ''
-  };
-
-  handleUsername = e => {
-    this.setState({ username: e.target.value });
-  };
-
-  handlePassword = e => {
-    this.setState({ password: e.target.value });
-  };
 
   loginSubmit = () => {
-    const { username, password } = this.state;
-
+    const { username, password } = this.props;
     axios.get('/api/users', { username, password });
 
-    console.log(this.state);
   };
 
   registerSubmit = () => {
-    const { username, password } = this.state;
+    const { username, password } = this.props;
     axios.post('/api/users', { username, password });
 
-    console.log(this.state);
   };
 
   render() {
+    const { updateUsername, updatePassword } = this.props;
     return (
       <div className="auth_container">
         <div className="login_container">
@@ -44,11 +33,11 @@ class Auth extends Component {
           <h1>Helo</h1>
           <div className="input">
             <h2>Username:</h2>
-            <input onChange={this.handleUsername} type="text" />
+            <input onChange={e => updateUsername(e.target.value)} type="text" />
           </div>
           <div className="input">
             <h2>Password:</h2>
-            <input onChange={this.handlePassword} type="password" />
+            <input onChange={e => updatePassword(e.target.value)} type="password" />
           </div>
           <div className="login_btn">
             <Link className="link_btn" to="/dashboard">
@@ -64,4 +53,9 @@ class Auth extends Component {
   }
 }
 
-export default Auth;
+const mapStateToProps = state => state;
+
+export default connect(
+  mapStateToProps,
+  { updateUsername, updatePassword }
+)(Auth);

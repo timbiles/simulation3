@@ -1,28 +1,37 @@
 .nav_container {
-    width: 90px;
-    height: 100vh;
-    background: linear-gradient(to top, #FF6FB5 20%, #FF8B66 90%);
-    position: relative;
+  width: 90px;
+  height: 100vh;
+  background: linear-gradient(to top, #ff6fb5 20%, #ff8b66 90%);
+  position: relative;
 }
 
 .nav_profile {
-    border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.nav_img {
+  width: 50px;
+  border-radius: 50%;
+  background-color: white;
 }
 
 .nav_links {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 15%;
 }
 
 .nav_icon {
-    width: 30px;
+  width: 30px;
 }
 
 .power {
-    position: absolute;
-    bottom: 2%;
-    right: 25%;
+  position: absolute;
+  bottom: 2%;
+  right: 25%;
 }
