@@ -23,8 +23,10 @@ class Dashboard extends Component {
       console.log(res.data);
       this.setState({posts: res.data})
     })
+  }
 
-
+  getUser = () => {
+    axios.get('/api/user')
   }
   
   render() {

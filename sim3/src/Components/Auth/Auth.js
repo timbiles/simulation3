@@ -3,22 +3,25 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import { updateUsername, updatePassword } from '../../ducks/reducer';
+import { updateUsername, updatePassword, getUser } from '../../ducks/reducer';
 
 import './Auth.css';
 
 class Auth extends Component {
-
   loginSubmit = () => {
-    const { username, password } = this.props;
-    axios.get('/api/user', { username, password });
+    const { username, password } = this.props.reducer;
+    // axios.post('/api/get_user', { username, password }).then(res => {
+    //   console.log('POST RESPONSE: ', res);
 
+    // });
+    this.props.getUser(username, password);
   };
 
   registerSubmit = () => {
-    const { username, password } = this.props;
-    axios.post('/api/user', { username, password });
-
+    const { username, password } = this.props.reducer;
+    axios.post('/api/user', { username, password }).then(res => {
+      console.log(res);
+    });
   };
 
   render() {
@@ -37,7 +40,10 @@ class Auth extends Component {
           </div>
           <div className="input">
             <h2>Password:</h2>
-            <input onChange={e => updatePassword(e.target.value)} type="password" />
+            <input
+              onChange={e => updatePassword(e.target.value)}
+              type="password"
+            />
           </div>
           <div className="login_btn">
             <Link className="link_btn" to="/dashboard">
@@ -57,5 +63,5 @@ const mapStateToProps = state => state;
 
 export default connect(
   mapStateToProps,
-  { updateUsername, updatePassword }
+  { updateUsername, updatePassword, getUser }
 )(Auth);

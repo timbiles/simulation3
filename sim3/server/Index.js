@@ -36,7 +36,7 @@ app.use(
 
 //--------- user endpoints ---------//
 app.post('/api/user', addUser);
-app.get('/api/user', getUser);
+app.post('/api/get_user', getUser);
 app.get('/api/users', getUsers);
 
 app.get('/api/posts', getPosts);

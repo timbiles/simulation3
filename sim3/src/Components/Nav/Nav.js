@@ -6,15 +6,20 @@ import './Nav.css';
 import { getUser } from '../../ducks/reducer';
 
 class Nav extends Component {
+  componentDidMount() {
+    this.props.getUser();
+    console.log(this.props);
+  }
   render() {
+    const { username, password } = this.props.reducer;
 
-    const image = this.props.img || 'https://robohash.org/TimBiles'
-
+    const image = this.props.img || 'https://robohash.org/TimBiles';
+    console.log(this.props);
     return (
       <div className="nav_container">
         <div className="nav_profile">
           <img className="nav_img" src={image} alt="Profile pic" />
-          <h2>{this.props.username}</h2>
+          <h2>{username}</h2>
         </div>
         <div className="nav_links">
           <Link to="/dashboard">
@@ -46,4 +51,7 @@ class Nav extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, {getUser})(Nav);
+export default connect(
+  mapStateToProps,
+  { getUser }
+)(Nav);

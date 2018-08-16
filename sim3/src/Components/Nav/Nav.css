@@ -12,6 +12,12 @@
   padding-top: 20px;
 }
 
+.nav_profile h2 {
+  color: white;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
 .nav_img {
   width: 50px;
   border-radius: 50%;

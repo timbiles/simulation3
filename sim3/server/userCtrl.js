@@ -5,6 +5,7 @@ const addUser = (req, res) => {
     db.add_user([username, password])
     .then(response => {
         res.status(200).send(response);
+        console.log('response', response)
       })
       .catch(err => {
         console.log(err);
