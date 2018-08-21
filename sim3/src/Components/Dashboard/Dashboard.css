@@ -81,3 +81,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.map_link {
+  text-decoration: none;
+  color: black;
+}

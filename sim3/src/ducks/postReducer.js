@@ -40,12 +40,12 @@ export default function postReducer(state = initialState, action) {
         ...state,
         title: action.payload
       };
-    case UPDATE_TITLE:
+    case UPDATE_IMG:
       return {
         ...state,
         title: action.payload
       };
-    case UPDATE_TITLE:
+    case UPDATE_CONTENT:
       return {
         ...state,
         title: action.payload

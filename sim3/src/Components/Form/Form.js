@@ -8,12 +8,15 @@ import { updateTitle, updateImg, updateContent } from '../../ducks/postReducer';
 
 class Form extends Component {
 
-    handleSubmit = () => {
-        let {title, img, content} = this.props;
-        let {users_id} = this.props
+    handleSubmit = id => {
+        let {title, img, content} = this.props.postReducer;
+        let {users_id} = this.props.reducer
 
-        axios.post('/api/posts', {
-            title, img, content, users_id
+
+        axios.post(`/api/new-post?title=${title}&img=${img}&content=${content}`
+            // img: img, content: content
+     ).then(res=> {
+          console.log(res)
         })
     }
     
@@ -40,7 +43,7 @@ class Form extends Component {
             <h2>Content:</h2>
             <input className="content_input" type="text" onChange={e => updateContent(e.target.value)}/>
           </div>
-          <h3 onClick={() =>  this.handleSubmit()}>Post</h3>
+          <h3 className='form_btn' onClick={id =>  this.handleSubmit(id)}>Post</h3>
         </div>
       </div>
     );

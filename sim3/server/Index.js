@@ -7,7 +7,7 @@ const path = require('path');
 const port = 3005;
 
 const { addUser, getUser, getUsers } = require('./userCtrl');
-const { getPosts} = require('./postCtrl');
+const { getPosts, addPost } = require('./postCtrl');
 
 const app = express();
 app.use(bodyParser.json());
@@ -40,6 +40,7 @@ app.post('/api/get_user', getUser);
 app.get('/api/users', getUsers);
 
 app.get('/api/posts', getPosts);
+app.post('/api/new-post', addPost)
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));

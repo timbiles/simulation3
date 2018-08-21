@@ -14,7 +14,7 @@ class Auth extends Component {
     //   console.log('POST RESPONSE: ', res);
 
     // });
-    this.props.getUser(username, password);
+    this.props.getUser();
   };
 
   registerSubmit = () => {

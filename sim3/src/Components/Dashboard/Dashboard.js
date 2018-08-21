@@ -10,36 +10,37 @@ import { getUsers } from '../../ducks/reducer';
 class Dashboard extends Component {
   state = {
     posts: []
-  }
+  };
 
   componentDidMount() {
-    // this.props.getUsers();
     this.getPosts();
   }
 
   getPosts = () => {
-    axios.get('/api/posts')
-    .then(res=> {
-      console.log(res.data);
-      this.setState({posts: res.data})
-    })
-  }
+    axios.get('/api/posts').then(res => {
+      this.setState({ posts: res.data });
+    });
+  };
 
   getUser = () => {
-    axios.get('/api/user')
-  }
-  
+    axios.get('/api/user');
+  };
+
   render() {
-    console.log(this.state);
+  
 
-    const map = this.state.posts.map(e=> {
-      return <div className='posts_map' key={e.id}>
-        <h2>{e.title}</h2>
-        <p>{e.content}</p>
-      </div>
-    })
+    const map = this.state.posts.map(e => {
+      return (
+        <div className="posts_map" key={e.id}>
+          <Link className='map_link'to={`/post/${e.id}`}>
+            <h2>{e.title}</h2>
+          </Link>
 
-    console.log(map)
+          <p>{e.content}</p>
+        </div>
+      );
+    });
+
     return (
       <div className="dashboard">
         <div className="dash_top">
@@ -59,9 +60,7 @@ class Dashboard extends Component {
             <input type="checkbox" />
           </div>
         </div>
-        <div className='dash_bottom'>
-          {map}
-        </div>
+        <div className="dash_bottom">{map}</div>
       </div>
     );
   }

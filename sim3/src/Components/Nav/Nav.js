@@ -8,13 +8,11 @@ import { getUser } from '../../ducks/reducer';
 class Nav extends Component {
   componentDidMount() {
     this.props.getUser();
-    console.log(this.props);
   }
   render() {
     const { username, password } = this.props.reducer;
 
     const image = this.props.img || 'https://robohash.org/TimBiles';
-    console.log(this.props);
     return (
       <div className="nav_container">
         <div className="nav_profile">

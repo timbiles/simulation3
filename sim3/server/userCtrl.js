@@ -19,6 +19,7 @@ const getUser = (req, res) => {
 
     db.get_user_by_username([username, password])
     .then(response => {
+      console.log("get: ", response)
         res.status(200).send(response);
       })
       .catch(err => {
@@ -46,3 +47,4 @@ module.exports = {
     getUser,
     getUsers
 }
+
